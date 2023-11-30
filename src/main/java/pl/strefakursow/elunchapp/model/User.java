@@ -3,13 +3,18 @@ package pl.strefakursow.elunchapp.model;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.strefakursow.elunchapp.model.enums.Archive;
 
 import java.util.List;
 import java.util.UUID;
 
 @Data
+@Builder
+@NoArgsConstructor @AllArgsConstructor
 @Entity
 public class User {
 

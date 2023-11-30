@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -15,21 +15,14 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity(name = "menuitems")
-public class MenuItem {
+public class MenuItemDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
     @NotBlank
     private String name;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
@@ -39,7 +32,6 @@ public class MenuItem {
     @Enumerated(EnumType.STRING)
     private VatTax vatTax;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
@@ -47,11 +39,9 @@ public class MenuItem {
 
     @NotNull
     @Size(min = 1)
-    @ManyToMany
-    private List<Dish> dishes;
+    private List<DishDTO> dishDTOS;
 
     @NotNull
-    @ManyToOne
-    private Restaurant restaurant;
+    private RestaurantDTO restaurantDTO;
 
 }

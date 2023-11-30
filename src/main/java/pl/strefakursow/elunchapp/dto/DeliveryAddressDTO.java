@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -7,20 +7,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.strefakursow.elunchapp.model.User;
 
 import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-public class DeliveryAddress {
+public class DeliveryAddressDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
 
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
@@ -43,7 +39,6 @@ public class DeliveryAddress {
     private String postCode;
 
     @NotNull
-    @ManyToOne
     private User user;
 
 }

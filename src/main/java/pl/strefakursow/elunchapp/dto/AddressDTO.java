@@ -1,5 +1,6 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -7,24 +8,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
-
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Embeddable
-public class OrderStatus {
+public class AddressDTO {
+
+    @Nullable
+    private String street;
 
     @NotNull
-    private Instant orderTime;
+    private String streetNumber;
+
+    @Nullable
+    private String localNumber;
 
     @NotNull
-    private Boolean isPaid;
+    private String city;
 
     @NotNull
-    private Instant giveOutTime;
-
-    @NotNull
-    private Instant deliveryTime;
-
+    private String postCode;
 }

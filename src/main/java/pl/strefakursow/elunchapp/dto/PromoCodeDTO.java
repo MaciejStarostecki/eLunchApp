@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.strefakursow.elunchapp.model.User;
 import pl.strefakursow.elunchapp.model.enums.DiscountUnit;
 
 import java.math.BigDecimal;
@@ -19,21 +20,14 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-public class PromoCode {
+public class PromoCodeDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
     @NotBlank
     private String code;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
@@ -44,11 +38,9 @@ public class PromoCode {
     private DiscountUnit discountUnit;
 
     @Nullable
-    @ManyToMany
     private List<User> users;
 
     @Nullable
-    @ManyToMany
-    private List<Restaurant> restaurants;
+    private List<RestaurantDTO> restaurantDTOS;
 
 }

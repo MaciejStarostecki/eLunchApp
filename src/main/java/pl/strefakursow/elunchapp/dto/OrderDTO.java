@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.strefakursow.elunchapp.model.User;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,34 +19,24 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity(name = "orders")
-public class Order {
+public class OrderDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
     private BigDecimal bruttoPrice;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
     private BigDecimal nettoPrice;
 
     @Nullable
-    @ManyToOne
-    private PromoCode promoCode;
+    private PromoCodeDTO promoCodeDTO;
 
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
@@ -56,23 +47,19 @@ public class Order {
 
     @NotNull
     @Embedded
-    private OrderStatus orderStatus;
+    private OrderStatusDTO orderStatusDTO;
 
     @NotNull
     @Size(min = 1)
-    @OneToMany
-    private List<OrderItem> orderItems;
+    private List<OrderItemDTO> orderItemDTOS;
 
     @NotNull
-    @ManyToOne
     private User user;
 
     @NotNull
-    @ManyToOne
-    private Deliverer deliverer;
+    private DelivererDTO delivererDTO;
 
     @NotNull
-    @ManyToOne
-    private Restaurant restaurant;
+    private RestaurantDTO restaurantDTO;
 
 }

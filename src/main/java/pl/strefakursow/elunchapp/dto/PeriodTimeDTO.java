@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Embeddable;
@@ -15,7 +15,7 @@ import java.time.LocalTime;
 @NoArgsConstructor @AllArgsConstructor
 @PeriodTimeConstraint
 @Embeddable
-public class PeriodTime {
+public class PeriodTimeDTO {
 
     @Nullable
     private LocalTime begin;

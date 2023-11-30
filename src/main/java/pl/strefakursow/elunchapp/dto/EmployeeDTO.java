@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -13,26 +13,18 @@ import java.util.UUID;
 @Data
 @SuperBuilder
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("employee")
-public class Employee {
+public class EmployeeDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
     @NotNull
     @Embedded
-    private PersonalData personalData;
+    private PersonalDataDTO personalDataDTO;
 
     @NotNull
     @Embedded
-    private LoginData loginData;
+    private LoginDataDTO loginDataDTO;
 
     @NotNull
     @Enumerated(EnumType.STRING)

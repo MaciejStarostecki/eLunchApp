@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -16,14 +16,8 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-public class Restaurant {
+public class RestaurantDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
@@ -32,28 +26,24 @@ public class Restaurant {
 
     @NotNull
     @Embedded
-    private LoginData loginData;
+    private LoginDataDTO loginDataDTO;
 
     @NotNull
     @Embedded
-    private CompanyData companyData;
+    private CompanyDataDTO companyDataDTO;
 
     @NotNull
     @Size(max = 7)
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OpenTime> openTimes;
+    private List<OpenTimeDTO> openTimeDTOS;
 
     @NotNull
-    @OneToMany(mappedBy = "restaurant")
-    private List<MenuItem> menuItems;
+    private List<MenuItemDTO> menuItemDTOS;
 
     @NotNull
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> orders;
+    private List<OrderDTO> orderDTOS;
 
     @NotNull
-    @ManyToMany(mappedBy = "restaurants")
-    private List<PromoCode> promoCodes;
+    private List<PromoCodeDTO> promoCodeDTOS;
 
     @NotNull
     @Enumerated(EnumType.STRING)

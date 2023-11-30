@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -14,15 +14,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Embeddable
-public class CompanyData {
+public class CompanyDataDTO {
 
     @NotNull
-    @Column(name = "companyName")
     private String name;
 
     @Embedded
     @NotNull
-    private Address address;
+    private AddressDTO addressDTO;
 
     @NotNull
     private String NIP;
@@ -34,7 +33,6 @@ public class CompanyData {
     private String phone;
 
     @NotNull
-    @Email
     private String email;
 
 }

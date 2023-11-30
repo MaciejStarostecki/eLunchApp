@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Embeddable
-public class LoginData {
+public class LoginDataDTO {
 
-    @Column(unique = true)
     @Size(min = 3)
     private String login;
 

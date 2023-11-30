@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -13,14 +13,8 @@ import java.util.UUID;
 @Data
 @Builder
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-public class OrderItem {
+public class OrderItemDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column(unique = true)
     @NotNull
     private UUID uuid;
 
@@ -29,7 +23,6 @@ public class OrderItem {
     private Integer quantity;
 
     @NotNull
-    @OneToOne
-    private MenuItem menuItem;
+    private MenuItemDTO menuItemDTO;
 
 }

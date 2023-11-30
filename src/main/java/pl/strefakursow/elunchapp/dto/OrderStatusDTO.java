@@ -1,4 +1,4 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import java.time.Instant;
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Embeddable
-public class OrderStatus {
+public class OrderStatusDTO {
 
     @NotNull
     private Instant orderTime;

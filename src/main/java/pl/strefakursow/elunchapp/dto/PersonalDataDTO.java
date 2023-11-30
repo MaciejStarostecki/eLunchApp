@@ -1,10 +1,9 @@
-package pl.strefakursow.elunchapp.model;
+package pl.strefakursow.elunchapp.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +14,7 @@ import pl.strefakursow.elunchapp.model.enums.Sex;
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Embeddable
-public class PersonalData {
+public class PersonalDataDTO {
 
     @Nullable
     private String name;
@@ -31,7 +30,6 @@ public class PersonalData {
     private String phone;
 
     @Nullable
-    @Email
     private String email;
 
 }
